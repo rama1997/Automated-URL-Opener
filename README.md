@@ -14,3 +14,4 @@ Task scheduler that allow users to automatically open URLs at a specific desired
 
 <img src="https://i.imgur.com/lMqILgsl.png" />
 
+See [here](https://github.com/rama1997/Automated-URL-Opener---Flask) for a self hosting Flask Web App version. Note this version is depreciated.
