@@ -2,7 +2,7 @@ import customtkinter
 import tkinter as tk
 from gui import add_job_frame, record_frame
 import cron
-import database
+import database as db
 import os
 
 customtkinter.set_appearance_mode("System")
@@ -24,8 +24,8 @@ class App(customtkinter.CTk):
 		self.get_button = customtkinter.CTkButton(self, text="Show All Scheduled Jobs", command=self.show_records, width = 40, fg_color="green")
 		self.get_button.grid(row=1, column=0, padx=10, pady=10)
 
-		if not os.path.exists("./db/database.db"):
-			database.create_db()
+		if not os.path.exists(db.database_path):
+			db.create_db()
 
 	def show_records(self):
 		self.window = customtkinter.CTkToplevel(self)
@@ -36,7 +36,7 @@ class App(customtkinter.CTk):
 		self.window.maxsize(width, height)
 		self.window.grid_columnconfigure(4, weight=1)
 		self.window.title("Existing Jobs")
-		records = database.query_all()
+		records = db.query_all()
 
 		# Create a frame for the canvas with non-zero row&column weights
 		frame_canvas = tk.Frame(self.window)

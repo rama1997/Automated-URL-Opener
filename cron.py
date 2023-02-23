@@ -37,7 +37,10 @@ def schedule(job_id,title,url,frequency):
 	if frequency["am_pm"] == "AM":
 		job.hour.on(int(frequency["Hour"]))
 	else:
-		job.hour.on(int(frequency["Hour"])+12)
+		if int(frequency["Hour"]) != 12:
+			job.hour.on(int(frequency["Hour"])+12)
+		else:
+			job.hour.on(int(frequency["Hour"]))
 
 	cron.write()
 	get_jobs(job_id)
