@@ -31,4 +31,4 @@ class edit_job_frame(customtkinter.CTkFrame):
 		frequency = self.frequency_option_menu.get_value()
 		database.update(self.job_id, title, url, frequency)
 		self.edit_window.destroy()
-		cron.edit_job(self.job_id, title, url, frequency)
+		cron.edit_job(self.job_id, url, frequency)

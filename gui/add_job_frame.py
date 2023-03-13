@@ -30,7 +30,7 @@ class add_job_frame(customtkinter.CTkFrame):
 		job_id = database.add(title,url,frequency)
 
 		# Add to crontab
-		cron.schedule(job_id,title,url, frequency)
+		cron.add_job(job_id,url, frequency)
 
 		# Reset form
 		self.title_entry.reset()
